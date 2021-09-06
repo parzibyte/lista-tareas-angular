@@ -9,11 +9,6 @@ export class TareasService {
 
   constructor() { }
 
-  agregarTarea(tarea: string) {
-    const tareas = this.obtenerTareas();
-    tareas.push(new TareaPendiente(tarea))
-    this.guardarTareas(tareas)
-  }
   obtenerTareas(): TareaPendiente[] {
     return JSON.parse(localStorage.getItem(this.CLAVE_LOCAL_STORAGE) || "[]")
   }
