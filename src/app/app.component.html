@@ -1,4 +1,12 @@
 <h1>Lista de tareas con Angular - By Parzibyte</h1>
 <label for="tarea">Nombre de la tarea:</label>
-<input placeholder="Ingresa la tarea" type="text" [(ngModel)]="tarea" id="tarea">
-<button [disabled]="!tarea" (click)="guardarTarea()">Guardar</button>
+<input placeholder="Ingresa la tarea" type="text" [(ngModel)]="nombreTarea" id="tarea">
+<button [disabled]="!nombreTarea" (click)="guardarTarea()">Guardar</button>
+
+<ul>
+    <li *ngFor="let tarea of tareas;let indice = index;" [class.tachado] ="tarea.terminada">
+        <input [(ngModel)]="tarea.terminada" (change)="cambiarEstadoDeTarea()" type="checkbox">
+        {{tarea.nombre}}
+        <a  (click)="eliminarTarea(indice)" class="enlace-eliminar">&times;</a>
+    </li>
+</ul>
