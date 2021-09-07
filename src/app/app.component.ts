@@ -43,7 +43,6 @@ export class AppComponent implements OnInit {
     this.tareas = this.tareasService.obtenerTareas();
   }
   ngOnInit() {
-    console.log("Init!")
     this.obtenerTareas();
   }
 }
